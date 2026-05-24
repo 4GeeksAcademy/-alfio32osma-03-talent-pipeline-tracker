@@ -1,43 +1,47 @@
-import Image from "next/image";
+import { useSearchParams } from 'next/navigation';
+import CandidateList from '../components/CandidateList';
+import Loading from '../components/Loading';
+import ErrorMessage from '../components/ErrorMessage';
+import { useCandidates } from '../hooks/useCandidates';
 
-export default function Home() {
+export default function HomePage() {
+  // Filtros y búsqueda desde query params
+  const searchParams = useSearchParams();
+  const estado = searchParams.get('estado') || undefined;
+  const etapa = searchParams.get('etapa') || undefined;
+  const q = searchParams.get('q') || undefined;
+
+  const { data, loading, error } = useCandidates({ estado, etapa, q });
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+    <main className="max-w-3xl mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Candidaturas</h1>
+      {/* Filtros y búsqueda (simplificado, puedes mejorar el UI) */}
+      <form className="flex gap-2 mb-4">
+        <input name="q" placeholder="Buscar por nombre o email" className="border p-2 rounded flex-1" defaultValue={q} />
+        <select name="estado" className="border p-2 rounded" defaultValue={estado || ''}>
+          <option value="">Todos los estados</option>
+          <option value="received">Recibida</option>
+          <option value="in_progress">En proceso</option>
+          <option value="selected">Seleccionada</option>
+          <option value="discarded">Descartada</option>
+        </select>
+        <select name="etapa" className="border p-2 rounded" defaultValue={etapa || ''}>
+          <option value="">Todas las etapas</option>
+          <option value="pending">Pendiente de revisión</option>
+          <option value="review">En revisión</option>
+          <option value="personal_interview">Entrevista personal</option>
+          <option value="technical_interview">Entrevista técnica</option>
+          <option value="offer_presented">Oferta presentada</option>
+        </select>
+        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">Filtrar</button>
+      </form>
+      {loading && <Loading />}
+      {error && <ErrorMessage message={error} />}
+      {data && <CandidateList candidatos={data} />}
+    </main>
+  );
+}
             target="_blank"
             rel="noopener noreferrer"
           >
