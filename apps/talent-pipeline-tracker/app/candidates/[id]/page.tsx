@@ -1,3 +1,4 @@
+"use client";
 import { useParams } from 'next/navigation';
 import CandidateDetail from '../../../components/CandidateDetail';
 import Loading from '../../../components/Loading';

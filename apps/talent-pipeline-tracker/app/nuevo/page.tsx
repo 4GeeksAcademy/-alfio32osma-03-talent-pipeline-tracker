@@ -1,3 +1,4 @@
+"use client";
 import { useState } from 'react';
 import { createCandidato } from '../../lib/api';
 import { Candidato } from '../../types/candidate';
