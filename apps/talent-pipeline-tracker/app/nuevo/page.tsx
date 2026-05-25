@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import { useState } from 'react';
 import { createCandidato } from '../../lib/api';
 import { Candidato } from '../../types/candidate';
@@ -95,7 +96,7 @@ export default function NuevoCandidatoPage() {
 
   return (
     <main className="max-w-xl mx-auto p-4">
-      <a href="/" className="text-blue-600 underline mb-4 inline-block">← Volver al listado</a>
+      <Link href="/" className="text-blue-600 underline mb-4 inline-block">← Volver al listado</Link>
       <h1 className="text-2xl font-bold mb-4">Registrar nuevo candidato</h1>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <input name="nombre" required placeholder="Nombre completo" className="w-full bg-charcoal-deep border border-outline/30 text-smoke-gray rounded-lg px-4 py-2 focus:outline-none focus:border-gourmet-gold focus:ring-1 focus:ring-gourmet-gold transition-colors" />

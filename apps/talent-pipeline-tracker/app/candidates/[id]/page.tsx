@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import CandidateDetail from '../../../components/CandidateDetail';
 import Loading from '../../../components/Loading';
@@ -12,7 +13,7 @@ export default function CandidateDetailPage() {
 
   return (
     <main className="max-w-2xl mx-auto p-4">
-      <a href="/" className="text-blue-600 underline mb-4 inline-block">← Volver al listado</a>
+      <Link href="/" className="text-blue-600 underline mb-4 inline-block">← Volver al listado</Link>
       {loading && <Loading />}
       {error && <ErrorMessage message={error} />}
       {data && <CandidateDetail candidato={data} notas={notas} />}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchCandidato, fetchNotas } from '../lib/api';
-import { Candidato, Nota } from '../types/candidate';
+import { Candidato } from '../types/candidate';
+import { Nota } from '../types/note';
 
 export function useCandidateDetail(id: string) {
   const [data, setData] = useState<Candidato | null>(null);

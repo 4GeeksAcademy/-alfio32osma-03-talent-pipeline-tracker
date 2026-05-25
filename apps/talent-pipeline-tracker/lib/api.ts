@@ -1,5 +1,6 @@
 // Funciones de acceso a la API de candidatos y notas
-import { Candidato, Nota } from '../types/candidate';
+import { Candidato } from '../types/candidate';
+import { Nota } from '../types/note';
 
 const API_BASE = '/api/tracker';
 const RESOURCE_CANDIDATES = ['records', 'candidates'] as const;

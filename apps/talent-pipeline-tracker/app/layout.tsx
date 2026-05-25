@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import GlobalSearchInput from "../components/GlobalSearchInput";
 import "./globals.css";
 
@@ -79,18 +80,18 @@ export default function RootLayout({
                 <span className="text-xl font-semibold tracking-tight">Talent Pipeline</span>
               </div>
               <nav className="flex flex-col gap-2">
-                <a href="/" className="flex items-center gap-2 px-3 py-2 rounded text-neutral-200 hover:bg-neutral-800 transition-colors font-medium">
+                <Link href="/" className="flex items-center gap-2 px-3 py-2 rounded text-neutral-200 hover:bg-neutral-800 transition-colors font-medium">
                   <IconDashboard className="h-5 w-5 text-yellow-400" />
                   Pipeline
-                </a>
-                <a href="/" className="flex items-center gap-2 px-3 py-2 rounded text-neutral-200 hover:bg-neutral-800 transition-colors font-medium">
+                </Link>
+                <Link href="/" className="flex items-center gap-2 px-3 py-2 rounded text-neutral-200 hover:bg-neutral-800 transition-colors font-medium">
                   <IconGroup className="h-5 w-5" />
                   Candidatos
-                </a>
-                <a href="#" className="flex items-center gap-2 px-3 py-2 rounded text-neutral-200 hover:bg-neutral-800 transition-colors font-medium">
+                </Link>
+                <Link href="/" className="flex items-center gap-2 px-3 py-2 rounded text-neutral-200 hover:bg-neutral-800 transition-colors font-medium">
                   <IconNote className="h-5 w-5" />
                   Notes
-                </a>
+                </Link>
               </nav>
             </div>
             <div className="text-neutral-500 text-sm flex items-center gap-2">
@@ -107,7 +108,7 @@ export default function RootLayout({
                   className="bg-neutral-800 border border-neutral-700 rounded px-4 py-2 text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   placeholder="Buscar candidatos por nombre o email..."
                 />
-                <a href="/nuevo" className="bg-yellow-400 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-300 transition-colors">+ Nuevo Candidato</a>
+                <Link href="/nuevo" className="bg-yellow-400 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-300 transition-colors">+ Nuevo Candidato</Link>
               </div>
             </header>
             <section className="flex-1 px-10 py-8">

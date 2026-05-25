@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { updateCandidato, fetchCandidato } from '../../../lib/api';
@@ -55,7 +56,7 @@ export default function EditarCandidatoPage() {
 
   return (
     <main className="max-w-xl mx-auto p-4">
-      <a href={`/candidates/${id}`} className="text-blue-600 underline mb-4 inline-block">← Volver al detalle</a>
+      <Link href={`/candidates/${id}`} className="text-blue-600 underline mb-4 inline-block">← Volver al detalle</Link>
       <h1 className="text-2xl font-bold mb-4">Editar candidato</h1>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <input name="nombre" required placeholder="Nombre completo" className="w-full bg-charcoal-deep border border-outline/30 text-smoke-gray rounded-lg px-4 py-2 focus:outline-none focus:border-gourmet-gold focus:ring-1 focus:ring-gourmet-gold transition-colors" defaultValue={candidato.nombre} />

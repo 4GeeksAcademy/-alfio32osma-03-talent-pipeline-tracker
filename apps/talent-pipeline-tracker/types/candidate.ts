@@ -1,3 +1,5 @@
+import type { Nota } from './note';
+
 // Tipos para candidato y valores de dominio según CONTEXT.md
 
 export type EstadoAPI = 'received' | 'in_progress' | 'selected' | 'discarded';
@@ -7,12 +9,6 @@ export type EtapaAPI =
   | 'personal_interview'
   | 'technical_interview'
   | 'offer_presented';
-
-export interface Nota {
-  id: string;
-  contenido: string;
-  fecha: string;
-}
 
 export interface Candidato {
   id: string;
