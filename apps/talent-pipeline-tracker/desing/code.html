@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "smoke-gray": "#E5E5E5",
+                "surface-variant": "#e1e3e4",
+                "surface": "#f8f9fa",
+                "secondary": "#735c00",
+                "outline-variant": "#c4c7c7",
+                "surface-container-high": "#e7e8e9",
+                "surface-bright": "#f8f9fa",
+                "tertiary-fixed-dim": "#ffb4ac",
+                "on-tertiary-fixed": "#410003",
+                "steak-red": "#961D1D",
+                "primary-fixed": "#e5e2e1",
+                "primary-container": "#1c1b1b",
+                "on-primary-container": "#858383",
+                "secondary-fixed-dim": "#e9c349",
+                "on-error-container": "#93000a",
+                "surface-dim": "#d9dadb",
+                "inverse-on-surface": "#f0f1f2",
+                "error-container": "#ffdad6",
+                "gourmet-gold": "#D4AF37",
+                "tertiary": "#000000",
+                "primary-fixed-dim": "#c8c6c5",
+                "on-error": "#ffffff",
+                "tertiary-fixed": "#ffdad6",
+                "inverse-surface": "#2e3132",
+                "on-primary-fixed-variant": "#474746",
+                "surface-container": "#edeeef",
+                "error": "#ba1a1a",
+                "paper-white": "#FFFFFF",
+                "secondary-container": "#fed65b",
+                "on-primary-fixed": "#1c1b1b",
+                "primary": "#000000",
+                "on-secondary-fixed": "#241a00",
+                "surface-container-low": "#f3f4f5",
+                "tertiary-container": "#410003",
+                "on-tertiary-fixed-variant": "#92030f",
+                "background": "#f8f9fa",
+                "on-background": "#191c1d",
+                "secondary-fixed": "#ffe088",
+                "on-primary": "#ffffff",
+                "inverse-primary": "#c8c6c5",
+                "on-secondary-container": "#745c00",
+                "on-secondary-fixed-variant": "#574500",
+                "on-surface": "#191c1d",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "on-surface-variant": "#444748",
+                "on-tertiary-container": "#ea4b44",
+                "outline": "#747878",
+                "charcoal-deep": "#121212",
+                "surface-tint": "#5f5e5e",
+                "on-secondary": "#ffffff",
+                "surface-container-highest": "#e1e3e4"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "gutter": "16px",
+                "container-margin": "16px",
+                "card-padding": "20px",
+                "stack-gap": "12px",
+                "base": "8px"
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "Hanken Grotesk"
+                ],
+                "label-caps": [
+                        "JetBrains Mono"
+                ],
+                "headline-xl": [
+                        "Hanken Grotesk"
+                ],
+                "headline-lg-mobile": [
+                        "Hanken Grotesk"
+                ],
+                "body-sm": [
+                        "Hanken Grotesk"
+                ],
+                "data-tabular": [
+                        "JetBrains Mono"
+                ],
+                "body-md": [
+                        "Hanken Grotesk"
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-xl": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "data-tabular": [
+                        "13px",
+                        {
+                                "lineHeight": "18px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pipeline-card {
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .pipeline-card:hover {
+            transform: translateY(-2px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-charcoal-deep font-body-md text-smoke-gray flex">
+<!-- Left Sidebar Navigation -->
+<nav class="w-64 bg-[#1a1a1a] border-r border-outline/20 h-screen sticky top-0 flex flex-col hidden lg:flex">
+<div class="px-6 py-6 border-b border-outline/20 flex items-center gap-3">
+<div class="w-8 h-8 bg-gourmet-gold rounded flex items-center justify-center text-charcoal-deep font-bold">T</div>
+<h1 class="font-headline-lg text-headline-lg-mobile text-paper-white tracking-tight">Talent Pipeline</h1>
+</div>
+<div class="flex flex-col gap-2 p-4 flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 bg-gourmet-gold/10 text-gourmet-gold rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-body-md font-medium">Pipeline</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-smoke-gray hover:bg-surface-variant/10 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-md">Candidates</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-smoke-gray hover:bg-surface-variant/10 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-body-md">Notes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-smoke-gray hover:bg-surface-variant/10 rounded-lg transition-colors mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md">Settings</span>
+</a>
+</div>
+</nav>
+<div class="flex-1 flex flex-col min-h-screen">
+<!-- Top Header for Mobile/Tablet or Search/Actions -->
+<header class="w-full top-0 sticky bg-[#1a1a1a] border-b border-outline/20 z-50">
+<div class="flex justify-between items-center px-8 py-4">
+<div class="flex items-center gap-4 lg:hidden">
+<button class="text-paper-white p-1">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg-mobile text-paper-white tracking-tight">Talent Pipeline</h1>
+</div>
+<div class="hidden lg:block">
+<h2 class="font-headline-lg text-headline-lg text-paper-white">Dashboard</h2>
+</div>
+<div class="flex items-center gap-4 w-full lg:w-auto ml-auto justify-end">
+<div class="relative hidden sm:block w-64 lg:w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-charcoal-deep border border-outline/30 text-smoke-gray rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:border-gourmet-gold focus:ring-1 focus:ring-gourmet-gold transition-colors font-body-sm" placeholder="Buscar candidatos..." type="text"/>
+</div>
+<button class="sm:hidden text-paper-white p-1">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="bg-gourmet-gold text-charcoal-deep px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:bg-gourmet-gold/90 transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span class="hidden sm:inline">Nuevo Candidato</span>
+</button>
+</div>
+</div>
+</header>
+<main class="p-4 sm:p-6 lg:p-8 flex-1">
+<!-- Quick Filters Container -->
+<section class="mb-8">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+<h2 class="font-label-caps text-label-caps uppercase tracking-widest text-outline">Filtrar por Estado</h2>
+<span class="font-data-tabular text-data-tabular text-outline">12 Candidatos Encontrados</span>
+</div>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<button class="whitespace-nowrap px-5 py-2.5 bg-gourmet-gold text-charcoal-deep rounded-full font-label-caps text-label-caps font-medium transition-colors">Todos</button>
+<button class="whitespace-nowrap px-5 py-2.5 bg-[#1a1a1a] text-smoke-gray rounded-full font-label-caps text-label-caps border border-outline/30 hover:border-gourmet-gold transition-colors">Recibida</button>
+<button class="whitespace-nowrap px-5 py-2.5 bg-[#1a1a1a] text-smoke-gray rounded-full font-label-caps text-label-caps border border-outline/30 hover:border-gourmet-gold transition-colors">En proceso</button>
+<button class="whitespace-nowrap px-5 py-2.5 bg-[#1a1a1a] text-smoke-gray rounded-full font-label-caps text-label-caps border border-outline/30 hover:border-gourmet-gold transition-colors">Seleccionada</button>
+<button class="whitespace-nowrap px-5 py-2.5 bg-[#1a1a1a] text-smoke-gray rounded-full font-label-caps text-label-caps border border-outline/30 hover:border-gourmet-gold transition-colors">Descartada</button>
+</div>
+</section>
+<!-- Candidate Pipeline Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Candidate Card 1: En Proceso -->
+<div class="pipeline-card bg-[#1a1a1a] border border-outline/20 border-l-4 border-l-gourmet-gold p-6 rounded-xl flex flex-col gap-4 group hover:border-gourmet-gold/50">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant/10 flex items-center justify-center text-gourmet-gold font-headline-lg">VR</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-paper-white group-hover:text-gourmet-gold transition-colors">Valentina Rosso</h3>
+<p class="font-body-sm text-body-sm text-outline">Asistente de Dirección</p>
+</div>
+</div>
+<span class="bg-gourmet-gold/10 text-gourmet-gold font-label-caps text-label-caps px-3 py-1.5 rounded-full border border-gourmet-gold/20">En proceso</span>
+</div>
+<div class="flex items-center gap-3 py-3 border-y border-outline/20">
+<span class="material-symbols-outlined text-[20px] text-outline" data-icon="forum">forum</span>
+<span class="font-body-sm text-body-sm text-outline">Etapa: <span class="text-smoke-gray font-medium">Entrevista técnica</span></span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="font-data-tabular text-data-tabular text-outline italic">Actualizado hace 2h</span>
+<button class="font-label-caps text-label-caps text-gourmet-gold hover:text-gourmet-gold/80 transition-colors flex items-center gap-1">Ver Perfil <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<!-- Candidate Card 2: Recibida -->
+<div class="pipeline-card bg-[#1a1a1a] border border-outline/20 border-l-4 border-l-outline p-6 rounded-xl flex flex-col gap-4 group hover:border-outline/50">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant/10 flex items-center justify-center text-outline font-headline-lg">MS</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-paper-white group-hover:text-outline transition-colors">Mateo Silva</h3>
+<p class="font-body-sm text-body-sm text-outline">Asistente de Dirección</p>
+</div>
+</div>
+<span class="bg-surface-variant/10 text-outline font-label-caps text-label-caps px-3 py-1.5 rounded-full border border-outline/20">Recibida</span>
+</div>
+<div class="flex items-center gap-3 py-3 border-y border-outline/20">
+<span class="material-symbols-outlined text-[20px] text-outline" data-icon="description">description</span>
+<span class="font-body-sm text-body-sm text-outline">Etapa: <span class="text-smoke-gray font-medium">Revisión de CV</span></span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="font-data-tabular text-data-tabular text-outline italic">Hoy, 09:15 AM</span>
+<button class="font-label-caps text-label-caps text-gourmet-gold hover:text-gourmet-gold/80 transition-colors flex items-center gap-1">Ver Perfil <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<!-- Candidate Card 3: Seleccionada -->
+<div class="pipeline-card bg-[#1a1a1a] border border-outline/20 border-l-4 border-l-gourmet-gold p-6 rounded-xl flex flex-col gap-4 group hover:border-gourmet-gold/50">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant/10 flex items-center justify-center text-gourmet-gold font-headline-lg">LM</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-paper-white group-hover:text-gourmet-gold transition-colors">Lucía Mendez</h3>
+<p class="font-body-sm text-body-sm text-outline">Asistente de Dirección</p>
+</div>
+</div>
+<span class="bg-gourmet-gold/20 text-gourmet-gold font-label-caps text-label-caps px-3 py-1.5 rounded-full border border-gourmet-gold/30">Seleccionada</span>
+</div>
+<div class="flex items-center gap-3 py-3 border-y border-outline/20">
+<span class="material-symbols-outlined text-[20px] text-outline" data-icon="verified">verified</span>
+<span class="font-body-sm text-body-sm text-outline">Etapa: <span class="text-smoke-gray font-medium">Oferta Enviada</span></span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="font-data-tabular text-data-tabular text-outline italic">Ayer</span>
+<button class="font-label-caps text-label-caps text-gourmet-gold hover:text-gourmet-gold/80 transition-colors flex items-center gap-1">Ver Perfil <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<!-- Candidate Card 4: Descartada -->
+<div class="pipeline-card bg-[#1a1a1a] border border-outline/20 border-l-4 border-l-steak-red p-6 rounded-xl flex flex-col gap-4 group opacity-75 hover:opacity-100 hover:border-steak-red/50">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant/10 flex items-center justify-center text-steak-red font-headline-lg">AD</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-paper-white group-hover:text-steak-red transition-colors">Andrés Duarte</h3>
+<p class="font-body-sm text-body-sm text-outline">Asistente de Dirección</p>
+</div>
+</div>
+<span class="bg-steak-red/10 text-steak-red font-label-caps text-label-caps px-3 py-1.5 rounded-full border border-steak-red/20">Descartada</span>
+</div>
+<div class="flex items-center gap-3 py-3 border-y border-outline/20">
+<span class="material-symbols-outlined text-[20px] text-outline" data-icon="cancel">cancel</span>
+<span class="font-body-sm text-body-sm text-outline">Etapa: <span class="text-smoke-gray font-medium">Finalizado</span></span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="font-data-tabular text-data-tabular text-outline italic">hace 3 días</span>
+<button class="font-label-caps text-label-caps text-outline hover:text-smoke-gray transition-colors flex items-center gap-1">Ver Detalles <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<!-- Candidate Card 5: En Proceso -->
+<div class="pipeline-card bg-[#1a1a1a] border border-outline/20 border-l-4 border-l-gourmet-gold p-6 rounded-xl flex flex-col gap-4 group hover:border-gourmet-gold/50">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant/10 flex items-center justify-center text-gourmet-gold font-headline-lg">IC</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-paper-white group-hover:text-gourmet-gold transition-colors">Isabella Conti</h3>
+<p class="font-body-sm text-body-sm text-outline">Asistente de Dirección</p>
+</div>
+</div>
+<span class="bg-gourmet-gold/10 text-gourmet-gold font-label-caps text-label-caps px-3 py-1.5 rounded-full border border-gourmet-gold/20">En proceso</span>
+</div>
+<div class="flex items-center gap-3 py-3 border-y border-outline/20">
+<span class="material-symbols-outlined text-[20px] text-outline" data-icon="psychology">psychology</span>
+<span class="font-body-sm text-body-sm text-outline">Etapa: <span class="text-smoke-gray font-medium">Evaluación Psicotécnica</span></span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="font-data-tabular text-data-tabular text-outline italic">Ayer</span>
+<button class="font-label-caps text-label-caps text-gourmet-gold hover:text-gourmet-gold/80 transition-colors flex items-center gap-1">Ver Perfil <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe bg-[#1a1a1a] border-t border-outline/20">
+<div class="flex flex-col items-center justify-center text-gourmet-gold p-3 border-t-2 border-gourmet-gold transition-all">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-label-caps text-label-caps mt-1">Pipeline</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline p-3 hover:text-smoke-gray transition-all">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps mt-1">Candidates</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline p-3 hover:text-smoke-gray transition-all">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-caps text-label-caps mt-1">Notes</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline p-3 hover:text-smoke-gray transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps mt-1">Settings</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for chips
+        const chips = document.querySelectorAll('.no-scrollbar button');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => {
+                    c.classList.remove('bg-gourmet-gold', 'text-charcoal-deep', 'font-medium');
+                    c.classList.add('bg-[#1a1a1a]', 'text-smoke-gray', 'border', 'border-outline/30');
+                });
+                chip.classList.remove('bg-[#1a1a1a]', 'text-smoke-gray', 'border', 'border-outline/30');
+                chip.classList.add('bg-gourmet-gold', 'text-charcoal-deep', 'font-medium');
+            });
+        });
+    </script>
+</body></html>

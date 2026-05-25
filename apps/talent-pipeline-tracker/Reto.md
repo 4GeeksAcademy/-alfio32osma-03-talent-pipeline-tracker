@@ -2,7 +2,7 @@
 
 Herramienta interna real que el equipo de People usará desde el lunes.
 La API REST ya está construida y documentada en:
-https://playground.4geeks.com/tracker/api/v1/docs
+Usar la variable TRACKER_API_URL y su documentación en TRACKER_API_URL/docs
 
 ### REQUISITOS CLAVE
 - Listado de candidaturas: nombre, puesto, estado y etapa
