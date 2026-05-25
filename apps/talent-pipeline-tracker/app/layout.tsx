@@ -77,12 +77,12 @@ export default function RootLayout({
             <div>
               <div className="flex items-center gap-3 mb-10">
                 <div className="bg-yellow-400 text-black font-bold rounded w-8 h-8 flex items-center justify-center text-lg">T</div>
-                <span className="text-xl font-semibold tracking-tight">Talent Pipeline</span>
+                <span className="text-xl font-semibold tracking-tight">Pipeline Brasaland</span>
               </div>
               <nav className="flex flex-col gap-2">
                 <Link href="/" className="flex items-center gap-2 px-3 py-2 rounded text-neutral-200 hover:bg-neutral-800 transition-colors font-medium">
                   <IconDashboard className="h-5 w-5 text-yellow-400" />
-                  Pipeline
+                  Panel
                 </Link>
                 <Link href="/" className="flex items-center gap-2 px-3 py-2 rounded text-neutral-200 hover:bg-neutral-800 transition-colors font-medium">
                   <IconGroup className="h-5 w-5" />
@@ -90,19 +90,19 @@ export default function RootLayout({
                 </Link>
                 <Link href="/" className="flex items-center gap-2 px-3 py-2 rounded text-neutral-200 hover:bg-neutral-800 transition-colors font-medium">
                   <IconNote className="h-5 w-5" />
-                  Notes
+                  Notas
                 </Link>
               </nav>
             </div>
             <div className="text-neutral-500 text-sm flex items-center gap-2">
               <IconSettings className="h-5 w-5" />
-              Settings
+              Configuración
             </div>
           </aside>
           {/* Main content */}
           <main className="flex-1 flex flex-col min-h-screen bg-neutral-900">
             <header className="flex items-center justify-between px-10 py-6 border-b border-neutral-800">
-              <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
+              <h1 className="text-2xl font-bold tracking-tight">Panel de Candidaturas</h1>
               <div className="flex items-center gap-4">
                 <GlobalSearchInput
                   className="bg-neutral-800 border border-neutral-700 rounded px-4 py-2 text-neutral-100 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
