@@ -3,9 +3,11 @@ import { Nota } from '../types/note';
 interface Props {
   notas: Nota[];
   onDelete?: (id: string) => void;
+  deletingId?: string | null;
+  disabled?: boolean;
 }
 
-export default function NoteList({ notas, onDelete }: Props) {
+export default function NoteList({ notas, onDelete, deletingId = null, disabled = false }: Props) {
   if (!notas.length) return <div className="text-neutral-500">Sin notas.</div>;
   return (
     <ul className="space-y-2">
@@ -16,7 +18,13 @@ export default function NoteList({ notas, onDelete }: Props) {
             <div className="text-xs text-neutral-500">{nota.fecha}</div>
           </div>
           {onDelete && (
-            <button onClick={() => onDelete(nota.id)} className="text-yellow-400 text-xs ml-2 hover:underline">Eliminar</button>
+            <button
+              onClick={() => onDelete(nota.id)}
+              className="text-yellow-400 text-xs ml-2 hover:underline disabled:text-neutral-500 disabled:no-underline"
+              disabled={disabled || deletingId === nota.id}
+            >
+              {deletingId === nota.id ? 'Eliminando...' : 'Eliminar'}
+            </button>
           )}
         </li>
       ))}

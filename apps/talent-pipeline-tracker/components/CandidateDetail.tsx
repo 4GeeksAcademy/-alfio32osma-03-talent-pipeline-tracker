@@ -17,14 +17,10 @@ export default function CandidateDetail({ candidato, notas: notasProp }: Props) 
   const [notas, setNotas] = useState<Nota[]>(notasProp);
   const [notaNueva, setNotaNueva] = useState('');
   const [loading, setLoading] = useState(false);
+  const [deletingNoteId, setDeletingNoteId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [noteSuccessMessage, setNoteSuccessMessage] = useState<string | null>(null);
-  const [deleteDebug, setDeleteDebug] = useState<{
-    recordId: string;
-    noteId: string;
-    at: string;
-  } | null>(null);
 
   async function handleEstadoEtapaChange(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -61,29 +57,40 @@ export default function CandidateDetail({ candidato, notas: notasProp }: Props) 
   }
 
   async function handleDeleteNota(id: string) {
-    setDeleteDebug({
-      recordId: String(candidato.id),
-      noteId: String(id ?? ''),
-      at: new Date().toISOString(),
-    });
-
     if (!id || !id.trim()) {
       setError('No se pudo eliminar la nota porque no tiene un identificador válido.');
       return;
     }
 
+    const previousNotas = notas;
+    setNotas(previousNotas.filter(n => n.id !== id));
     setLoading(true);
+    setDeletingNoteId(id);
     setError(null);
     setNoteSuccessMessage(null);
     try {
       await deleteNota(candidato.id, id);
-      setNotas(notas.filter(n => n.id !== id));
       setNoteSuccessMessage('Nota eliminada con éxito.');
       setTimeout(() => setNoteSuccessMessage(null), 2500);
     } catch (e: any) {
-      setError(e.message);
+      const message = String(e?.message ?? 'Error al eliminar nota');
+      const normalized = message.toLowerCase();
+      const alreadyDeleted =
+        normalized.includes('404') ||
+        normalized.includes('not found') ||
+        normalized.includes('no encontrado') ||
+        normalized.includes('no existe');
+
+      if (alreadyDeleted) {
+        setNoteSuccessMessage('Nota eliminada con éxito.');
+        setTimeout(() => setNoteSuccessMessage(null), 2500);
+      } else {
+        setNotas(previousNotas);
+        setError(message);
+      }
     } finally {
       setLoading(false);
+      setDeletingNoteId(null);
     }
   }
 
@@ -141,20 +148,11 @@ export default function CandidateDetail({ candidato, notas: notasProp }: Props) 
           />
           <button type="submit" className="bg-yellow-400 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-300 transition-colors" disabled={loading || !notaNueva.trim()}>Añadir</button>
         </form>
-        <NoteList notas={notas} onDelete={handleDeleteNota} />
+        <NoteList notas={notas} onDelete={handleDeleteNota} deletingId={deletingNoteId} disabled={loading} />
 
         {noteSuccessMessage && (
           <div className="mt-3 rounded border border-green-700/50 bg-green-900/20 p-3 text-sm text-green-300">
             {noteSuccessMessage}
-          </div>
-        )}
-
-        {deleteDebug && (
-          <div className="mt-4 rounded border border-yellow-700/60 bg-yellow-900/20 p-3 text-xs text-yellow-200">
-            <div className="font-semibold mb-1">Debug delete (temporal)</div>
-            <div>recordId: {deleteDebug.recordId}</div>
-            <div>noteId: {deleteDebug.noteId || '(vacío)'}</div>
-            <div>timestamp: {deleteDebug.at}</div>
           </div>
         )}
       </div>
